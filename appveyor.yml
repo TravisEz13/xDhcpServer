@@ -1,11 +1,11 @@
 install: 
   - git clone https://github.com/PowerShell/DscResource.Tests
   - ps: |
-      &nuget.exe install PoshBuildTools -source https://ci.appveyor.com/nuget/PoshBuildTools -outputDirectory "$env:USERPROFILE\Documents\WindowsPowerShell\Modules\" -ExcludeVersion -Version 1.0.0.48
+      &nuget.exe install PoshBuildTools -source https://ci.appveyor.com/nuget/PoshBuildTools -outputDirectory "$env:USERPROFILE\Documents\WindowsPowerShell\Modules\" -ExcludeVersion -Version 1.0.0.59
       Import-Module PoshBuildTools
       $moduleInfoList = @()
       $moduleInfoList += New-BuildModuleInfo -ModuleName 'xDhcpServer' -ModulePath '.' -CodeCoverage @('.\DSCResources\MSFT_xDhcpServerOption\MSFT_xDhcpServerOption.psm1') -Tests @('.')
-      Invoke-AppveyorInstall -InstallPester
+      Invoke-AppveyorInstall 
 
 
 build_script:
@@ -14,9 +14,11 @@ build_script:
 
 test_script:
   - ps: |
-      Import-Module .\ConvertToHtml -force
       Invoke-AppveyorTest -moduleInfoList $moduleInfoList 
 
 on_finish:
   - ps: |
       Invoke-AppveyorFinish -moduleInfoList $moduleInfoList -expectedModuleCount 1
+
+cache:
+  - C:\Users\appveyor\AppData\Local\NuGet\Cache

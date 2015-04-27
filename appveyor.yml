@@ -1,4 +1,5 @@
 install: 
+  - ps: |
       &nuget.exe install PoshBuildTools -source https://ci.appveyor.com/nuget/PoshBuildTools -outputDirectory "$env:USERPROFILE\Documents\WindowsPowerShell\Modules\" -ExcludeVersion -Version 1.0.0.48
       Import-Module PoshBuildTools
       $moduleInfoList = @()

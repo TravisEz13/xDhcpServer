@@ -1,4 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/uan12tf7tfxhg7m5/branch/master?svg=true)](https://ci.appveyor.com/project/PowerShell/xdhcpserver/branch/master)
+[![codecov.io](http://codecov.io/github/TravisEz13/xDhcpServer/coverage.svg?branch=master)](http://codecov.io/github/TravisEz13/xDhcpServer?branch=master)
+![codecov.io](http://codecov.io/github/TravisEz13/xDhcpServer/branch.svg?branch=master)
 
 # xDhcpServer
 
@@ -90,7 +92,7 @@ configuration Sample_xDhcpServerReservation_IPReservation
         Ensure = 'Present'
         ScopeID = '192.168.1.0'
         ClientMACAddress = '00155D8A54A1'
-        IPAddress = '192.168.10.2'
+        IPAddress = '192.168.1.2'
         Name = 'DSCPullServer'
         AddressFamily = 'IPv4'
     }
@@ -106,10 +108,11 @@ configuration Sample_xDhcpServerOption_SetScopeOption
     xDhcpServerOption Option
     {
         Ensure = 'Present'
-        ScopeID = '192.168.10.0'
+        ScopeID = '192.168.1.0'
         DnsDomain = 'contoso.com'
-        DnsServerIPAddress = '192.168.10.22','192.168.10.1'
+        DnsServerIPAddress = '192.168.1.22','192.168.1.1'
         AddressFamily = 'IPv4'
+        Router = '192.168.1.1'
     }
 }
 ```

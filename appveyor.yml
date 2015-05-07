@@ -4,7 +4,7 @@ install:
       &nuget.exe install PoshBuildTools -source https://ci.appveyor.com/nuget/PoshBuildTools -outputDirectory "$env:USERPROFILE\Documents\WindowsPowerShell\Modules\" -ExcludeVersion
       Import-Module PoshBuildTools
       $moduleInfoList = @()
-      $moduleInfoList += New-BuildModuleInfo -ModuleName 'xDhcpServer' -ModulePath '.' -CodeCoverage @('.\DSCResources\MSFT_xDhcpServerOption\MSFT_xDhcpServerOption.psm1') -Tests @('.')
+      $moduleInfoList += New-BuildModuleInfo -ModuleName 'xDhcpServer' -ModulePath '.'  -CodeCoverage @('.\DSCResources\MSFT_xDhcpServerOption\MSFT_xDhcpServerOption.psm1') -Tests @('.')
       Invoke-AppveyorInstall 
 
 

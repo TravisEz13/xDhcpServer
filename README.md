@@ -1,4 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/uan12tf7tfxhg7m5/branch/master?svg=true)](https://ci.appveyor.com/project/PowerShell/xdhcpserver/branch/master)
+[![codecov.io](http://codecov.io/github/TravisEz13/xDhcpServer/coverage.svg?branch=master)](http://codecov.io/github/TravisEz13/xDhcpServer?branch=master)
+![codecov.io](http://codecov.io/github/TravisEz13/xDhcpServer/branch.svg?branch=master)
 
 # xDhcpServer
 
